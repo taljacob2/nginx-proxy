@@ -1,5 +1,6 @@
 FROM docker.io/nginx:latest
-COPY default.conf.template default.conf.template
-ARG DESTINATION_SERVER=http://localhost:80
-RUN cat default.conf.template | envsubst '$DESTINATION_SERVER' > /etc/nginx/conf.d/default.conf
-CMD ["nginx", "-g", "daemon off;"]
+COPY default.conf.template .
+COPY startup.sh .
+RUN chmod +x ./startup.sh
+ENV DESTINATION_SERVER=http://localhost:80
+CMD ./startup.sh $DESTINATION_SERVER
