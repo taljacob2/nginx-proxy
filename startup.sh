@@ -6,6 +6,9 @@ export DESTINATION_SERVER=$DESTINATION_SERVER
 # Inject the exported env variables to nginx `default.conf`.
 cat default.conf.template | envsubst '$DESTINATION_SERVER' > /etc/nginx/conf.d/default.conf
 
+# Start ssh server on port 22.
+service ssh start
+
 # Start the server.
 nginx
 
