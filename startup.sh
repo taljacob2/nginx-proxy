@@ -1,6 +1,6 @@
 #!/bin/bash
 
-local DESTINATION_SERVER="$1"
+DESTINATION_SERVER="$1"
 export DESTINATION_SERVER=$DESTINATION_SERVER
 
 # Inject the exported env variables to nginx `default.conf`.
