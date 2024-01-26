@@ -14,5 +14,10 @@ docker build . -t nginx-proxy
 ### Run The Image
 
 ```sh
-docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_SERVER=http://<destination-host>:<destination-port>" nginx-proxy:latest
+docker run -d --name nginx-proxy \
+-p <local-http-port>:80 \
+-e "DESTINATION_HTTP_SERVER=<destination-http-host>:<destination-http-port>" \
+-p <local-https-port>:443 \
+-e "DESTINATION_HTTPS_SERVER=<destination-https-host>:<destination-https-port>" \
+nginx-proxy:latest
 ```
