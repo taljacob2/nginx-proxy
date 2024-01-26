@@ -7,13 +7,13 @@ That means, all the requests that this server will have, will be forwarded to th
 
 ### Build The Image
 
-```sh
+```
 docker build . -t nginx-proxy
 ```
 
 ### Run The Image
 
-```sh
+```
 docker run -d --name nginx-proxy \
 -p <local-http-port>:80 \
 -e "DESTINATION_HTTP_SERVER=<destination-http-host>:<destination-http-port>" \
