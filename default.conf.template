@@ -1,7 +1,7 @@
 stream {
     server {
-        server_name  localhost;
-        listen       $server_name:22;
-        proxy_pass   $DESTINATION_SERVER:22;
+        listen       2222;
+        listen  [::]:2222;
+        proxy_pass   localhost:22;
     }
 }
