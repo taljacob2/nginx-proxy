@@ -1,7 +1,22 @@
 stream {
+    upstream ssh {
+        server 0.0.0.0:22;
+    }
+
+#    upstream web {
+#        server 10.10.10.5:443;
+#    }
+
+    map $ssl_preread_protocol $upstream {
+        default ssh;
+#        "TLSv1.2" web;
+    }
+
+    # SSH and SSL on the same port
     server {
-        listen       2222;
-        listen  [::]:2222;
-        proxy_pass   localhost:22;
+        listen 443;
+
+        proxy_pass $upstream;
+        ssl_preread on;
     }
 }
