@@ -6,7 +6,7 @@ server {
     #access_log  /var/log/nginx/host.access.log  main;
 
     location / {
-	proxy_pass $DESTINATION_HTTP_SERVER;
+	proxy_pass http://$DESTINATION_HTTP_SERVER;
     }
 
     #error_page  404              /404.html;
@@ -29,7 +29,7 @@ server {
     #access_log  /var/log/nginx/host.access.log  main;
 
     location / {
-	proxy_pass $DESTINATION_HTTPS_SERVER;
+	proxy_pass https://$DESTINATION_HTTPS_SERVER;
         proxy_ssl_verify off;
     }
 
