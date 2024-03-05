@@ -14,5 +14,5 @@ docker build . -t nginx-proxy
 ### Run The Image
 
 ```sh
-docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_SERVER=http://<destination-host>:<destination-port>" nginx-proxy:latest
+docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_SERVER=http://<destination-host>:<destination-port>" ghcr.io/taljacob2/nginx-proxy:master
 ```
