@@ -11,6 +11,7 @@ server {
 
     location / {
 	proxy_pass $DESTINATION_SERVER;
+	proxy_set_header Host $DESTINATION_HOST;
     }
 
     #error_page  404              /404.html;
