@@ -5,12 +5,6 @@ That means, all the requests that this server will have, will be forwarded to th
 
 ## Usage
 
-### Build The Image
-
-```sh
-docker build . -t nginx-proxy
-```
-
 ### Run The Image
 
 #### Set A Server Proxy
@@ -33,5 +27,13 @@ docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_HOST=<app.ex
 
 ```sh
 docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_HOST=<app.example.com>" -e "DESTINATION_SERVER=http://<destination-ip>:<destination-port>" ghcr.io/taljacob2/nginx-proxy
+```
+
+## Development
+
+### Build The Image
+
+```sh
+docker build . -t nginx-proxy
 ```
 
