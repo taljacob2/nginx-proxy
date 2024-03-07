@@ -5,7 +5,14 @@ That means, all the requests that this server will have, will be forwarded to th
 
 ## Usage
 
+|Env Variable|Default Value|Description Of Default Value|
+|:---|:---|:---|
+|`DESTINATION_HOST`|`localhost`|No definition for a particular host name|
+|`DESTINATION_SERVER`|`http://172.17.0.1:80`|The host machine running the docker container|
+
 ### Run The Image
+
+You may use any of the following options to your liking:
 
 #### Set A Server Proxy
 
@@ -13,15 +20,11 @@ That means, all the requests that this server will have, will be forwarded to th
 docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_SERVER=http://<destination-ip>:<destination-port>" ghcr.io/taljacob2/nginx-proxy
 ```
 
-> Default value of `DESTINATION_HOST` is used, and is set to `localhost` (i.e. the host machine of the docker socket).
-
 #### Set A Host Name
 
 ```sh
-docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_HOST=<app.example.com>" nginx-proxy
+docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_HOST=<app.example.com>" ghcr.io/taljacob2/nginx-proxy
 ```
-
-> Default value of `DESTINATION_SERVER` is used, and is set to `http://172.17.0.1:80` (i.e. the host machine of the docker socket).
 
 #### Set A Server Proxy With A Host Name
 
@@ -31,9 +34,13 @@ docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_HOST=<app.ex
 
 ## Development
 
-### Build The Image
+### Build The Image Locally
 
 ```sh
 docker build . -t nginx-proxy
 ```
 
+### Build & Publish The Image On GitHub Repository
+
+- Push to `master` branch to create `ghcr.io/taljacob2/nginx-proxy:master`
+- Push a git tag with a semantic tagging of `v*.*.*` to create `ghcr.io/taljacob2/nginx-proxy:v*.*.*`
