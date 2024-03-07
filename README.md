@@ -14,19 +14,19 @@ That means, all the requests that this server will have, will be forwarded to th
 
 You may use any of the following options to your liking:
 
-#### Set A Server Proxy, With No Particular Host Name
+#### Set A Proxy Server, With No Particular Host Name
 
 ```sh
 docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_SERVER=http://<destination-ip>:<destination-port>" ghcr.io/taljacob2/nginx-proxy
 ```
 
-#### Set A Host Name, With No Server Proxy
+#### Set A Host Name, With No Proxy Server
 
 ```sh
 docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_HOST=<app.example.com>" ghcr.io/taljacob2/nginx-proxy
 ```
 
-#### Set A Server Proxy With A Host Name
+#### Set A Proxy Server With A Host Name
 
 ```sh
 docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_HOST=<app.example.com>" -e "DESTINATION_SERVER=http://<destination-ip>:<destination-port>" ghcr.io/taljacob2/nginx-proxy
