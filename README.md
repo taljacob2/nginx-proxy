@@ -16,7 +16,7 @@ docker build . -t nginx-proxy
 #### Set A Server Proxy
 
 ```sh
-docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_SERVER=http://<destination-host>:<destination-port>" ghcr.io/taljacob2/nginx-proxy
+docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_SERVER=http://<destination-ip>:<destination-port>" ghcr.io/taljacob2/nginx-proxy
 ```
 
 > Default value of `DESTINATION_HOST` is used, and is set to `localhost` (i.e. the host machine of the docker socket).
@@ -32,6 +32,6 @@ docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_HOST=<app.ex
 #### Set A Server Proxy With A Host Name
 
 ```sh
-docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_HOST=<app.example.com>" -e "DESTINATION_SERVER=http://<destination-host>:<destination-port>" ghcr.io/taljacob2/nginx-proxy
+docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_HOST=<app.example.com>" -e "DESTINATION_SERVER=http://<destination-ip>:<destination-port>" ghcr.io/taljacob2/nginx-proxy
 ```
 
