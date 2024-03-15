@@ -29,7 +29,7 @@ docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_HOST=<app.ex
 #### Set A Proxy Server With A Host Name
 
 ```sh
-docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_HOST=<app.example.com>" -e "DESTINATION_SERVER=http://<destination-ip>:<destination-port>" ghcr.io/taljacob2/nginx-proxy
+docker run -d --name nginx-proxy -p <local-port>:80 -e "DESTINATION_HOST=<app.example.com>:<destination-port>" -e "DESTINATION_SERVER=http://<destination-ip>:<destination-port>" ghcr.io/taljacob2/nginx-proxy
 ```
 
 ## Development
