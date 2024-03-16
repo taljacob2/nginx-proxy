@@ -1,4 +1,7 @@
 FROM docker.io/nginx:latest
+
+COPY nginx.conf /etc/nginx/nginx.conf
+
 COPY default.conf.template .
 COPY startup.sh .
 RUN chmod +x ./startup.sh
