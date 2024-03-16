@@ -1,3 +1,8 @@
+log_format proxy_log '[$time_local] $remote_addr - $remote_user $request_method "$host$request_uri" '
+           '$status $body_bytes_sent "$http_referer" '
+           '"$http_user_agent" "$http_x_forwarded_for"'
+           ' Proxy: "$proxy_host" "$upstream_addr"';
+
 server { 
     server_name  localhost;
     listen       80;
@@ -7,7 +12,9 @@ server {
     # ssl_certificate /etc/nginx/certs/default.crt;
     # ssl_certificate_key /etc/nginx/certs/default.key;
 
+    # logs
     #access_log  /var/log/nginx/host.access.log  main;
+    access_log /dev/stdout proxy_log;
 
     location / {
 	proxy_pass $DESTINATION_SERVER;
